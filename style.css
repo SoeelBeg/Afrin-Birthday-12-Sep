@@ -1,0 +1,1026 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #26004a,
+            #080014 55%,
+            #020005
+        );
+
+    color: white;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   BACKGROUND LIGHTS
+========================= */
+
+.lights {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255, 0, 200, 0.18),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(0, 200, 255, 0.18),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 50% 80%,
+            rgba(130, 0, 255, 0.20),
+            transparent 30%
+        );
+
+    animation:
+        backgroundMove 10s
+        ease-in-out
+        infinite alternate;
+}
+
+@keyframes backgroundMove {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.25);
+    }
+}
+
+
+/* =========================
+   STARS
+========================= */
+
+.stars {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    background-image:
+        radial-gradient(
+            white 1px,
+            transparent 1px
+        );
+
+    background-size: 80px 80px;
+
+    opacity: 0.25;
+
+    animation:
+        starsMove 20s
+        linear
+        infinite;
+}
+
+@keyframes starsMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-80px);
+    }
+}
+
+
+/* =========================
+   OPENING SCREEN
+========================= */
+
+.opening-screen {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle,
+            #23003d,
+            #080014 70%
+        );
+
+    z-index: 1000;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+.opening-content {
+    width: 90%;
+
+    max-width: 500px;
+
+    text-align: center;
+}
+
+.sparkle {
+    font-size: 45px;
+
+    margin-bottom: 20px;
+
+    animation:
+        sparkle 1.5s
+        infinite alternate;
+}
+
+@keyframes sparkle {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.3);
+    }
+}
+
+.small-text {
+    font-size: 16px;
+
+    opacity: 0.7;
+
+    margin-bottom: 15px;
+}
+
+.opening-content h1 {
+
+    font-size: clamp(
+        38px,
+        8vw,
+        55px
+    );
+
+    margin-bottom: 20px;
+
+    text-shadow:
+        0 0 10px #ff4fd8,
+        0 0 30px #ff4fd8,
+        0 0 60px #7b2cff;
+}
+
+.loading-text {
+
+    opacity: 0.8;
+
+    margin-bottom: 20px;
+}
+
+.loader {
+
+    width: 100%;
+
+    height: 8px;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    border-radius: 50px;
+
+    overflow: hidden;
+}
+
+#loaderBar {
+
+    width: 0%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff4fd8,
+            #7b2cff,
+            #00d4ff
+        );
+
+    box-shadow:
+        0 0 15px #ff4fd8;
+
+    transition:
+        width 0.1s linear;
+}
+
+.loading-hint {
+
+    margin-top: 15px;
+
+    font-size: 12px;
+
+    opacity: 0.4;
+}
+
+
+/* =========================
+   BIRTHDAY SCREEN
+========================= */
+
+.birthday-screen {
+
+    min-height: 100vh;
+
+    padding:
+        70px
+        20px
+        80px;
+
+    position: relative;
+
+    z-index: 5;
+
+    display: none;
+}
+
+.container {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+.hello-text {
+
+    font-size: 17px;
+
+    opacity: 0.8;
+
+    margin-bottom: 20px;
+}
+
+.birthday-title {
+
+    font-size:
+        clamp(
+            48px,
+            9vw,
+            90px
+        );
+
+    line-height: 1.1;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff6bd6,
+            #ffffff,
+            #72e7ff,
+            #ff6bd6
+        );
+
+    background-size: 300%;
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    animation:
+        gradientMove 5s
+        linear
+        infinite;
+}
+
+@keyframes gradientMove {
+
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 300%;
+    }
+}
+
+.name {
+
+    font-size:
+        clamp(
+            35px,
+            7vw,
+            65px
+        );
+
+    margin-top: 15px;
+
+    text-shadow:
+        0 0 10px #ff4fd8,
+        0 0 25px #ff4fd855;
+}
+
+
+/* =========================
+   AGE
+========================= */
+
+.age {
+
+    width: 135px;
+
+    height: 135px;
+
+    margin:
+        35px
+        auto
+        12px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 65px;
+
+    font-weight: bold;
+
+    background:
+        rgba(255,255,255,0.07);
+
+    border:
+        2px solid
+        rgba(255,255,255,0.4);
+
+    box-shadow:
+        0 0 20px #ff4fd8,
+        0 0 60px #7b2cff,
+        inset 0 0 25px #7b2cff;
+
+    animation:
+        agePulse 2s
+        infinite;
+}
+
+@keyframes agePulse {
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+.age-text {
+
+    opacity: 0.7;
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   ISLAMIC DUA CARD
+========================= */
+
+.dua-card {
+
+    margin:
+        50px
+        auto
+        20px;
+
+    max-width: 700px;
+
+    padding: 35px 25px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.10),
+            rgba(255,255,255,0.04)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.18);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 0 50px
+        rgba(150,50,255,0.15);
+}
+
+.dua-icon {
+
+    font-size: 35px;
+
+    margin-bottom: 10px;
+}
+
+.dua-card h3 {
+
+    font-size: 22px;
+
+    margin-bottom: 20px;
+}
+
+.urdu {
+
+    direction: rtl;
+
+    font-size: 21px;
+
+    line-height: 2;
+
+    margin-bottom: 12px;
+
+    font-family:
+        "Noto Nastaliq Urdu",
+        "Segoe UI",
+        sans-serif;
+}
+
+.arabic {
+
+    direction: rtl;
+
+    font-size: 21px;
+
+    margin:
+        20px
+        0;
+
+    color: #ffe9a8;
+}
+
+.dua-meaning {
+
+    font-size: 14px;
+
+    opacity: 0.65;
+
+    font-style: italic;
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title {
+
+    margin-top: 55px;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    opacity: 0.9;
+}
+
+.section-title span {
+
+    margin:
+        0 10px;
+}
+
+
+/* =========================
+   PHOTOS
+========================= */
+
+.photos {
+
+    margin-top: 35px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+}
+
+.photo-card {
+
+    width: 250px;
+
+    height: 310px;
+
+    padding: 8px;
+
+    background:
+        rgba(255,255,255,0.10);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.25);
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,0.4);
+
+    transition:
+        transform 0.4s,
+        box-shadow 0.4s;
+
+    overflow: hidden;
+}
+
+.photo-one {
+    transform: rotate(-4deg);
+}
+
+.photo-two {
+    transform: rotate(3deg);
+}
+
+.photo-three {
+    transform: rotate(-2deg);
+}
+
+.photo-card:hover {
+
+    transform:
+        rotate(0)
+        scale(1.06);
+
+    box-shadow:
+        0 0 30px
+        rgba(255,80,220,0.35);
+}
+
+.photo-card img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+}
+
+
+/* =========================
+   MESSAGE CARD
+========================= */
+
+.message-card {
+
+    margin:
+        65px
+        auto
+        0;
+
+    max-width: 720px;
+
+    padding:
+        45px
+        30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.11),
+            rgba(255,255,255,0.035)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.18);
+
+    border-radius: 28px;
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 20px 70px
+        rgba(0,0,0,0.35);
+
+    line-height: 1.8;
+
+    font-size: 17px;
+}
+
+.card-top {
+
+    font-size: 35px;
+
+    margin-bottom: 10px;
+}
+
+.message-card h3 {
+
+    font-size: 30px;
+
+    margin-bottom: 20px;
+}
+
+.message-card > p {
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   URDU MESSAGE
+========================= */
+
+.urdu-message {
+
+    margin:
+        30px
+        0;
+
+    padding:
+        20px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    border-right:
+        3px solid #ff72d2;
+}
+
+.urdu-message p {
+
+    direction: rtl;
+
+    font-size: 20px;
+
+    line-height: 2;
+
+    margin: 0;
+}
+
+
+/* =========================
+   DEVELOPER WISH
+========================= */
+
+.developer-wish {
+
+    margin-top: 30px;
+
+    padding: 20px;
+
+    text-align: left;
+
+    border-radius: 15px;
+
+    background:
+        rgba(0,0,0,0.35);
+
+    border:
+        1px solid
+        rgba(0,255,200,0.15);
+
+    font-family:
+        "Courier New",
+        monospace;
+}
+
+.code-title {
+
+    color: #7fffd4;
+
+    margin-bottom: 15px;
+
+    font-weight: bold;
+}
+
+.developer-wish p {
+
+    margin-bottom: 6px;
+
+    color: #d8d8d8;
+}
+
+code {
+
+    color: #ff8ee8;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    padding:
+        2px 6px;
+
+    border-radius: 5px;
+}
+
+
+/* =========================
+   SIGNATURE
+========================= */
+
+.signature {
+
+    margin-top: 30px;
+
+    font-weight: bold;
+
+    color: #ff8be3;
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   FINAL WISH
+========================= */
+
+.final-wish {
+
+    margin-top: 60px;
+
+    line-height: 2;
+
+    font-size: 20px;
+}
+
+.final-line {
+
+    opacity: 0.75;
+}
+
+.final-line.highlight {
+
+    margin-top: 8px;
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    color: #ff8be3;
+
+    text-shadow:
+        0 0 15px #ff4fd8;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer-text {
+
+    margin-top: 60px;
+
+    opacity: 0.4;
+
+    font-size: 13px;
+}
+
+.footer-member {
+
+    margin-top: 10px;
+
+    opacity: 0.6;
+
+    font-size: 15px;
+}
+
+.footer-date {
+
+    margin-top: 5px;
+
+    opacity: 0.35;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   FIREWORK
+========================= */
+
+.firework {
+
+    position: fixed;
+
+    width: 5px;
+
+    height: 5px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 3;
+
+    animation:
+        fireworkExplode
+        1.4s
+        ease-out
+        forwards;
+}
+
+@keyframes fireworkExplode {
+
+    0% {
+
+        transform:
+            scale(0);
+
+        opacity: 1;
+
+        box-shadow:
+            0 0 0 0 white;
+    }
+
+    50% {
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            scale(35);
+
+        opacity: 0;
+
+        box-shadow:
+            0 0 10px 4px #ff69d9;
+    }
+}
+
+
+/* =========================
+   BALLOONS
+========================= */
+
+.balloon {
+
+    position: fixed;
+
+    bottom: -100px;
+
+    width: 35px;
+
+    height: 45px;
+
+    border-radius:
+        50%
+        50%
+        45%
+        45%;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    animation:
+        balloonUp
+        10s
+        linear
+        forwards;
+}
+
+@keyframes balloonUp {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    100% {
+
+        transform:
+            translateY(-120vh)
+            rotate(20deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .birthday-screen {
+
+        padding:
+            55px
+            15px
+            70px;
+    }
+
+    .dua-card {
+
+        padding:
+            28px
+            18px;
+    }
+
+    .urdu {
+
+        font-size: 18px;
+    }
+
+    .arabic {
+
+        font-size: 18px;
+    }
+
+    .photo-card {
+
+        width: 90%;
+
+        max-width: 320px;
+
+        height: 350px;
+    }
+
+    .message-card {
+
+        padding:
+            35px
+            20px;
+
+        font-size: 16px;
+    }
+
+    .urdu-message p {
+
+        font-size: 18px;
+    }
+
+    .developer-wish {
+
+        font-size: 13px;
+
+        overflow-x: auto;
+    }
+
+    .final-wish {
+
+        font-size: 17px;
+    }
+}   
